@@ -161,7 +161,7 @@ class DiscordBot {
         const guild = await msg.guild?.fetch();
         if (guild == null) return;
         if (!this.watches.has(guild.id)) return;
-        
+
         const reportChanId = this.watches.get(guild.id)?.reportChan;
         if (reportChanId == null) return;
         await this.reportApexStatus(reportChanId, isAdd, guild, await user.fetch());
@@ -177,7 +177,7 @@ class DiscordBot {
 
         try {
             const member = await guild.members.fetch(user.id);
-            
+
             const tail = isStart ? "を始めました" : "をやめました";
             const content = `${member.displayName} が Apex Legends ${tail}`;
 
@@ -250,5 +250,5 @@ class DiscordBot {
 const disco = new DiscordBot();
 disco.start(DISCORD_TOKEN);
 
-const web = new WebAPI();
-web.start();
+// const web = new WebAPI();
+// web.start();
